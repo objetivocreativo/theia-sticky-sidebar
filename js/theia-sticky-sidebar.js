@@ -177,7 +177,13 @@
 						position = 'absolute';
 					}
 				}
-
+				
+				// Stop when sticker element is on its original top position. 
+				if (scrollTop < (o.sidebar.offset().top + o.paddingTop + o.marginTop - o.options.additionalMarginTop)) {
+    				    resetSidebar();
+    				    return;
+				}
+				
 				/*
 				 * Performance notice: It's OK to set these CSS values at each resize/scroll, even if they don't change.
 				 * It's way slower to first check if the values have changed.
